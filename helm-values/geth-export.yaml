@@ -1,0 +1,6 @@
+gethCommand: ["/entrypoint.sh", "-e", "-v", "${VERSION}", "-l", "/root/.ethereum"]
+gethSetup: false
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsUser: 0
+probesEnable: false

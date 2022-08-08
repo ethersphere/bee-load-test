@@ -1,0 +1,11 @@
+gethSetup: false
+extraInitContainers:
+ - name: storage-importer
+   image: perun84/bee:storage-syncer
+   command: ["/entrypoint.sh", "-i", "-v", "${VERSION}", "-l", "/root/.ethereum"]
+   volumeMounts:
+    - mountPath: /root/.ethereum
+      name: data
+   securityContext:
+     allowPrivilegeEscalation: false
+     runAsUser: 0

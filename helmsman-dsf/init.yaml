@@ -1,0 +1,80 @@
+context: bee
+
+namespaces:
+  $NAMESPACE:
+    protected: false
+
+helmRepos:
+  ethersphere: "https://ethersphere.github.io/helm"
+
+appsTemplates:
+  bee: &beeTemplate
+    name: bee
+    namespace: $NAMESPACE
+    chart: "ethersphere/bee"
+    # chart: "../../helm/charts/bee"
+    version: "0.12.2"
+    enabled: true
+    valuesFiles:
+      - "../helm-values/bee.yaml"
+    set:
+      image.repository: ethersphere/bee
+      image.tag: 1.6.3
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+    wait: true
+    timeout: 1800
+
+apps:
+  geth:
+    name: geth
+    namespace: $NAMESPACE
+    chart: "ethersphere/geth-swap"
+    # chart: "../../helm/charts/geth-swap"
+    version: "0.3.5"
+    description: "Geth"
+    priority: -15
+    enabled: true
+    valuesFiles:
+      - "../helm-values/geth.yaml"
+    set:
+      image.repository: ethereum/client-go
+      image.tag: v1.10.18
+    wait: true
+  bootnode:
+    <<: *beeTemplate
+    name: bootnode
+    description: "Bootnode Nodes"
+    priority: -10
+    set:
+      replicaCount: $BOOTNODE_REPLICA
+      beeConfig.bootnode-mode: true
+      beeConfig.full-node: true
+  gateway:
+    <<: *beeTemplate
+    name: gateway
+    description: "Gateway Nodes"
+    priority: -5
+    set:
+      gatewayProxy.enabled: true
+      replicaCount: $GATEWAY_REPLICA
+      beeConfig.full-node: true
+  full:
+    <<: *beeTemplate
+    name: full
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+  light:
+    <<: *beeTemplate
+    name: light
+    description: "Light Nodes"
+    priority: -5
+    set:
+      replicaCount: $LIGHT_REPLICA
+      beeConfig.full-node: false

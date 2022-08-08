@@ -1,0 +1,39 @@
+clusters:
+  load-test:
+    _inherit: ""
+    name: bee
+    namespace: load-test
+    disable-namespace: false
+    api-domain: testnet.internal
+    api-scheme: http
+    debug-api-domain: testnet.internal
+    debug-api-scheme: http
+    node-groups:
+      bootnode-bee:
+        mode: bootnode
+        bee-config: load-test
+        config: load-test
+        count: 1
+      gateway-bee:
+        mode: node
+        bee-config: load-test
+        config: load-test
+        count: 10
+      full-bee:
+        mode: node
+        bee-config: load-test
+        config: load-test
+        count: 79
+      light-bee:
+        mode: node
+        bee-config: load-test
+        config: load-test
+        count: 10
+
+node-groups:
+  load-test:
+    _inherit: "default"
+
+bee-configs:
+  load-test:
+    _inherit: "default"

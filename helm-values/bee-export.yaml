@@ -1,0 +1,9 @@
+serviceAccount:
+  name: storage-syncer
+  create: false
+libp2pSettings:
+  enabled: false
+swarmSettings:
+  enabled: false
+beeCommand: ["/entrypoint.sh", "-e", "-v", "${VERSION}"]
+probesEnable: false

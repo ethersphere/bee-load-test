@@ -1,0 +1,14 @@
+serviceAccount:
+  name: storage-syncer
+  create: false
+libp2pSettings:
+  enabled: false
+swarmSettings:
+  enabled: false
+extraInitContainers:
+ - name: storage-importer
+   image: perun84/bee:storage-syncer
+   command: ["/entrypoint.sh", "-i", "-v", "${VERSION}"]
+   volumeMounts:
+     - mountPath: /home/bee/.bee
+       name: data
