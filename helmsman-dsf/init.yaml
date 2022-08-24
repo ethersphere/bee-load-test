@@ -19,7 +19,7 @@ appsTemplates:
       - "../helm-values/bee.yaml"
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.6.3
+      image.tag: 1.7.0
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"

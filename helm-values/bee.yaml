@@ -3,6 +3,9 @@ image:
 
 podManagementPolicy: Parallel
 
+updateStrategy:
+  type: OnDelete
+
 serviceAccount:
   create: true
 
