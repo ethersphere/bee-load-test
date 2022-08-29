@@ -245,10 +245,12 @@ gatewayProxy:
       - paths:
           - /  
   envs:
-    - name: POSTAGE_DEPTH
-      value: "20"
-    - name: POSTAGE_AMOUNT
-      value: "50000000"
+    - name: POSTAGE_STAMP
+      value: "aba423368288d171cc442d29c1dde56ba4b6b15ef1607df90d4063875242571b"
+#    - name: POSTAGE_DEPTH
+#      value: "20"
+#    - name: POSTAGE_AMOUNT
+#      value: "50000000"
     - name: POSTAGE_USAGE_THRESHOLD
       value: "0.874"
     - name: POSTAGE_USAGE_MAX
