@@ -66,8 +66,8 @@ beeConfig:
   tracing-service-name: bee-load-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
   swap-endpoint: http://geth-geth-swap:8545
-  swap-factory-address: 0x0e889eaa70509e9557d851e0c217f8059d708840
-  swap-legacy-factory-addresses: 0xb066fbcdfc51d4caa70b8faf2e2577c5d6c6b6ac
+  swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
+  swap-legacy-factory-addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
   swap-initial-deposit: 500000000000000000
   verbosity: 5
 
