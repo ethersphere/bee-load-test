@@ -78,3 +78,18 @@ apps:
     set:
       replicaCount: $LIGHT_REPLICA
       beeConfig.full-node: false
+  beekeeper-smoketest:
+    name: beekeeper-smoke-test
+    namespace: $NAMESPACE
+    chart: "ethersphere/beekeeper"
+    version: "0.4.0"
+    description: "A Helm chart for beekeeper"
+    enabled: true
+    priority: -2
+    valuesFiles:
+      - "../helm-values/beekeeper-smoke-test.yaml"
+    set:
+      image.repository: ethersphere/beekeeper
+      image.tag: latest
+    wait: false
+    timeout: 900
