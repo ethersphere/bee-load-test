@@ -42,7 +42,7 @@ $ NAMESPACE=storage-snapshot ./install.sh export latest
 For importing all cluster data Bee and Geth nodes:
 
 ```bash
-$ NAMESPACE=storage-snapshot ./install.sh export latest
+$ NAMESPACE=storage-snapshot ./install.sh import fix-libp2p-0.19.4-go1.18_v1
 ```
 
 ## Configuration
