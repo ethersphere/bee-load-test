@@ -1,0 +1,16 @@
+image:
+  pullPolicy: Always
+
+serviceAccount:
+  create: true
+  createRole: true
+
+config:
+  command: ['beekeeper', 'check', '--cluster-name=anatol', '--checks=load', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
+  dirPath: 'files'
+  CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
+  CONFIG_GIT_BRANCH: load-test
+  schedule: '30 */2 * * *'
+
+nodeSelector:
+  node-group: private
