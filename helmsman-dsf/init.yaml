@@ -9,7 +9,6 @@ helmRepos:
 
 appsTemplates:
   bee: &beeTemplate
-    name: bee
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
     # chart: "../../helm/charts/bee"
@@ -17,14 +16,6 @@ appsTemplates:
     enabled: true
     valuesFiles:
       - "../helm-values/bee.yaml"
-    set:
-      image.repository: ethersphere/bee
-      image.tag: latest
-      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
     wait: true
     timeout: 1800
 
@@ -50,34 +41,70 @@ apps:
     description: "Bootnode Nodes"
     priority: -10
     set:
+      image.repository: ethersphere/bee
+      image.tag: latest
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
   gateway:
     <<: *beeTemplate
     name: gateway
     description: "Gateway Nodes"
     priority: -5
     set:
+      image.repository: ethersphere/bee
+      image.tag: latest
       gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
-  full:
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+  fullv1:
     <<: *beeTemplate
-    name: full
+    name: fullv1
     description: "Full Nodes"
     priority: -5
     set:
-      replicaCount: $FULL_REPLICA
+      image.repository: ethersphere/bee
+      image.tag: latest
+      replicaCount: $FULL_REPLICA_V1
       beeConfig.full-node: true
-  light:
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+  fullv2:
     <<: *beeTemplate
-    name: light
-    description: "Light Nodes"
+    name: fullv2
+    description: "Full Nodes"
     priority: -5
     set:
-      replicaCount: $LIGHT_REPLICA
-      beeConfig.full-node: false
+      image.repository: anatollupacescu/libp2p
+      image.tag: latest
+      replicaCount: $FULL_REPLICA_V2
+      beeConfig.full-node: true
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+#  light:
+#    <<: *beeTemplate
+#    name: light
+#    description: "Light Nodes"
+#    priority: -5
+#    set:
+#      replicaCount: $LIGHT_REPLICA
+#      beeConfig.full-node: false
   # beekeeper-loadtest:
   #   name: beekeeper-load-test
   #   namespace: $NAMESPACE
