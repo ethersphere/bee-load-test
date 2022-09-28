@@ -11,6 +11,7 @@ config:
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
   CONFIG_GIT_BRANCH: load-test
   schedule: '30 */2 * * *'
+  parallelism: 10
 
 nodeSelector:
   node-group: private
