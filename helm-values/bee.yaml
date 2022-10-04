@@ -3,9 +3,6 @@ image:
 
 podManagementPolicy: Parallel
 
-updateStrategy:
-  type: OnDelete
-
 serviceAccount:
   create: true
 
@@ -59,15 +56,15 @@ beeConfig:
   debug-api-enable: true
   mainnet: false
   network-id: 12345
-  payment-threshold: 108000000
-  postage-stamp-address: 0x2c3de8a0407a8a3e33bc130194ac8bcd532c8e95
-  price-oracle-address: 0x4f600964c166786245d7521760d652a543021887
+  payment-threshold: 10
+  postage-stamp-address: 0x0e889eaa70509e9557d851e0c217f8059d708840
+  price-oracle-address: 0x9f93eea625510e2003deefe0c2b025c051dae1cd
   tracing-enable: true
   tracing-service-name: bee-load-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
   swap-endpoint: http://geth-geth-swap:8545
-  swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
-  swap-legacy-factory-addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
+  swap-factory-address: 0x550415b93a9879de0684e711015e11769b2d7330
+  swap-legacy-factory-addresses: 0x4f600964c166786245d7521760d652a543021887
   swap-initial-deposit: 500000000000000000
   verbosity: 5
 
@@ -82,6 +79,7 @@ swarmSettings:
   enabled: true
   swarmKeys:
     bootnode-bee-0: '{"address":"7338babe3975595e39b90ffbb097f70a2070a665","crypto":{"cipher":"aes-128-ctr","ciphertext":"1fc935dac27aa66ef27a1881c578ef4afa81d761e3c6babe519da92cde8b7813","cipherparams":{"iv":"f4c348ae224b25a112e9a7c2927c27b5"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"d007a31a0fc410714c896ea278a014ff1d9a2ae58679ac3ecd0297e32320773b"},"mac":"8eadcc06883b79d9668c5bd448a7014bcbe7f09cfe5c8634d7062f0466284cd0"},"version":3}'
+    bootnode-bee-1: '{"address":"343ae8522091a4a12ce86f9c2223689f50416520","crypto":{"cipher":"aes-128-ctr","ciphertext":"766009dea65a87f9becd6eecc6dfc6e0e32355843926330f500d45a206d1558a","cipherparams":{"iv":"a2fa40cb363c95aed8d71baa4a9dcd61"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"34de2def5a0b1381594433e38d6b259ec1b5c205354ca0f5f28d7f661119c868"},"mac":"298b46af840e0358ffeab41d66a662278ed538bc1505381abb18a37384901106"},"version":3}'
     gateway-bee-0: '{"address":"001bfeccbfab5d24ca09b13ed8fc99e2f9e471fa","crypto":{"cipher":"aes-128-ctr","ciphertext":"b18db6832e284fdfaaf3404059fed8d4fe9de9beba913ae03ca613d819b9bcb0","cipherparams":{"iv":"7fc6fe70e62dc27d235b3941ee577584"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"d091bdd4d1dbc17bda834144e016a2f370d41aceb254325f262520eef9fd4287"},"mac":"7f727c56692de393175bcad3acb5885e20c20180bd957f3b1580162911a4d71a"},"version":3}'
     gateway-bee-1: '{"address":"9b2422a4671f665a1736522cea2011eb5d59b343","crypto":{"cipher":"aes-128-ctr","ciphertext":"b01d782df3c1f1cb9d885f60d3a44da7d30de9cc4f273f438a58532196d16aa5","cipherparams":{"iv":"fba21e24cfc8eb8e56cf35d972699846"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"1af2774c41daf66e57ae26af0e5bf859c8bb98061a6600f8f5d0b89caa8e8d63"},"mac":"c27264643fbd35819f1065ed5613e857fa5e6e9371a6e6e79bbcfdb5f606ca51"},"version":3}'
     gateway-bee-2: '{"address":"617e78c89bbfaa96afd4092f1092aa89f179aacd","crypto":{"cipher":"aes-128-ctr","ciphertext":"ce48460b11516ebd2a5090b620a857a30b1cd7a13d7d77dcb6c9e29b45ded202","cipherparams":{"iv":"ecfc42dd433f7de32fb27cd79a4b6b0a"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"2a961da4af9955a898e9a3a3303a687c8d012bb87750b1a1bfc265368730c0f5"},"mac":"0678112a24129d143e7af8883297505f0ca77d01bbdf1dc95f17f00cb146c92d"},"version":3}'
@@ -91,7 +89,6 @@ swarmSettings:
     gateway-bee-6: '{"address":"42ee22f49c636132e02177ff6d0749960bf10b70","crypto":{"cipher":"aes-128-ctr","ciphertext":"6a72325a2035413d141a34a367e27c3bcfac45016373d6095953d2712f969a05","cipherparams":{"iv":"8c08154b45cd590f1e17c9594d2f6884"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"530d2d69bddbce1abf7d3ae62170ade6a0fbc02e8467c97fd43f3501a04a990b"},"mac":"be45c424887bed3cfdba5bef7716b79ee4b9b7a8e8001f9d37d100a4866ba71b"},"version":3}'
     gateway-bee-7: '{"address":"f65f73334b5c2db7b6e1b71b239098e0367346bf","crypto":{"cipher":"aes-128-ctr","ciphertext":"04f9de777ddb21a4aec726c3491ec810889e25c3d02af96ad3d224e1d0a32f28","cipherparams":{"iv":"a682c1ef6c0176890962c1de55c74b4a"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"88a0e721bbfe4aeb253eb3283f7c71afe87ba2998e17f81b296600068166308f"},"mac":"b67f1666617fa8a6e53d55a31faa4e7e170f69e496675721235c3ba27e467936"},"version":3}'
     gateway-bee-8: '{"address":"571b553e20e282d583e8d7d0008336db0ad5495e","crypto":{"cipher":"aes-128-ctr","ciphertext":"853ba4cbaf75dd64384acd4da889c5fe05d232b44fb5b3469456d7d30885c948","cipherparams":{"iv":"10e2e88a876628dd255026de4fed6d8d"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"fe5ecc8642e32f8e360413c41fd7da368dce4f29fd58aa2449d11811397a99d4"},"mac":"94187794753d11e0123410bc009d6058fb7c3d906063563d7a40ee4d544ec302"},"version":3}'
-    gateway-bee-9: '{"address":"343ae8522091a4a12ce86f9c2223689f50416520","crypto":{"cipher":"aes-128-ctr","ciphertext":"766009dea65a87f9becd6eecc6dfc6e0e32355843926330f500d45a206d1558a","cipherparams":{"iv":"a2fa40cb363c95aed8d71baa4a9dcd61"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"34de2def5a0b1381594433e38d6b259ec1b5c205354ca0f5f28d7f661119c868"},"mac":"298b46af840e0358ffeab41d66a662278ed538bc1505381abb18a37384901106"},"version":3}'
     full-bee-0: '{"address":"5afaed16435fe67d4fcbfcf9b0bcd3463333a356","crypto":{"cipher":"aes-128-ctr","ciphertext":"6bcb28416aa5cc8b59dcc9e16ebc372222690ea3ca4d158ae0d77128ca1eb462","cipherparams":{"iv":"05a317a1cf591045bb61c78d3cc97321"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"bac1e6b3a19b48e52125c0a4de38faede04625d00396663f4e5e164b78dfcaa4"},"mac":"b4022b2c9a7f5b7457e4aa4705b3b65d4f127a1453ede01b5a8a7cf4ed70ceec"},"version":3}'
     full-bee-1: '{"address":"ccee7cba14f46a7ec390c7426a074a0d278764f1","crypto":{"cipher":"aes-128-ctr","ciphertext":"f2e84fc36b8938b328504c4dc8e7e1a6b811cc56abf2c7d338f88ab06edffa27","cipherparams":{"iv":"8a47da2faef04beab5664b87d91b560a"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"ba542d9ddc29ab2e4fe68e7ef200d11d00608ac43494b18a964ce8423a3ad7e0"},"mac":"4692be67567434f90ca08dc036aebeebc2168b1aa4fab3a268d701d02f195470"},"version":3}'
     full-bee-2: '{"address":"4348646e8da90390ca9c96f32f650bd386e1e258","crypto":{"cipher":"aes-128-ctr","ciphertext":"de2b9ed0927723da96dcbbf365b861af705ead1aef1cec05a088b07f847847b1","cipherparams":{"iv":"f89bdbb4a0026ea9261eeb71f58e3a18"},"kdf":"scrypt","kdfparams":{"n":32768,"r":8,"p":1,"dklen":32,"salt":"b1b1de6bf7558c20052f69bd7f08486b99f2824bac781bfeda21bde73b31ddc2"},"mac":"919634ea39c0380b7728a6e1ef58bbf44cc70c9addb3c23fa6e80ede280dd88b"},"version":3}'

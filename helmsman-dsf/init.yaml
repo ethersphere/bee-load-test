@@ -9,7 +9,6 @@ helmRepos:
 
 appsTemplates:
   bee: &beeTemplate
-    name: bee
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
     # chart: "../../helm/charts/bee"
@@ -17,14 +16,6 @@ appsTemplates:
     enabled: true
     valuesFiles:
       - "../helm-values/bee.yaml"
-    set:
-      image.repository: ethersphere/bee
-      image.tag: 1.7.0
-      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
     wait: true
     timeout: 1800
 
@@ -50,6 +41,13 @@ apps:
     description: "Bootnode Nodes"
     priority: -10
     set:
+      image.repository: ethersphere/bee
+      image.tag: 1.9.0-rc2
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
@@ -59,6 +57,13 @@ apps:
     description: "Gateway Nodes"
     priority: -5
     set:
+      image.repository: ethersphere/bee
+      image.tag: 1.9.0-rc2
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
       gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
@@ -68,6 +73,13 @@ apps:
     description: "Full Nodes"
     priority: -5
     set:
+      image.repository: ethersphere/bee
+      image.tag: 1.9.0-rc2
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
   light:
@@ -76,20 +88,27 @@ apps:
     description: "Light Nodes"
     priority: -5
     set:
+      image.repository: ethersphere/bee
+      image.tag: 1.9.0-rc2
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
       replicaCount: $LIGHT_REPLICA
       beeConfig.full-node: false
-  beekeeper-smoketest:
-    name: beekeeper-smoke-test
-    namespace: $NAMESPACE
-    chart: "ethersphere/beekeeper"
-    version: "0.4.0"
-    description: "A Helm chart for beekeeper"
-    enabled: true
-    priority: -2
-    valuesFiles:
-      - "../helm-values/beekeeper-smoke-test.yaml"
-    set:
-      image.repository: ethersphere/beekeeper
-      image.tag: latest
-    wait: false
-    timeout: 900
+#  beekeeper-smoketest:
+#    name: beekeeper-smoke-test
+#    namespace: $NAMESPACE
+#    chart: "ethersphere/beekeeper"
+#    version: "0.4.0"
+#    description: "A Helm chart for beekeeper"
+#    enabled: true
+#    priority: -2
+#    valuesFiles:
+#      - "../helm-values/beekeeper-smoke-test.yaml"
+#    set:
+#      image.repository: ethersphere/beekeeper
+#      image.tag: latest
+#    wait: false
+#    timeout: 900
