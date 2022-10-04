@@ -56,7 +56,7 @@ beeConfig:
   debug-api-enable: true
   mainnet: false
   network-id: 12345
-  payment-threshold: 10
+  payment-threshold: 9000000
   postage-stamp-address: 0x508e8f4b1f1d34b4854749f3f44110b5267b5562
   price-oracle-address: 0x8fca4dc86aa784b0b52f844169cf73bcc8526545
   tracing-enable: true
