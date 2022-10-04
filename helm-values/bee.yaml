@@ -57,14 +57,16 @@ beeConfig:
   mainnet: false
   network-id: 12345
   payment-threshold: 10
-  postage-stamp-address: 0x0e889eaa70509e9557d851e0c217f8059d708840
-  price-oracle-address: 0x9f93eea625510e2003deefe0c2b025c051dae1cd
+  postage-stamp-address: 0x508e8f4b1f1d34b4854749f3f44110b5267b5562
+  price-oracle-address: 0x8fca4dc86aa784b0b52f844169cf73bcc8526545
   tracing-enable: true
   tracing-service-name: bee-load-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
   swap-endpoint: http://geth-geth-swap:8545
-  swap-factory-address: 0x550415b93a9879de0684e711015e11769b2d7330
-  swap-legacy-factory-addresses: 0x4f600964c166786245d7521760d652a543021887
+  swap-factory-address: 0x3f9680be9cba9a5523a9e2696e8a97d64acf1b29
+  swap-legacy-factory-addresses: 0xbd36b32fa01e393bd52e7c368110447a82a78af6
+  staking-address: 0x430174cf173cf3e81e98c5a4b2dcb8348a094866
+  redistribution-address: 0xdf1b37cc4549db404131fe4a5538f478bc6032c1
   swap-initial-deposit: 500000000000000000
   verbosity: 5
 
