@@ -52,7 +52,7 @@ persistence:
 
 beeConfig:
   allow-private-cidrs: true
-  block-time: 1
+  block-time: 2
   debug-api-enable: true
   mainnet: false
   network-id: 12345
