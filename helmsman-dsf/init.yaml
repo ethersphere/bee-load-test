@@ -42,7 +42,7 @@ apps:
     priority: -10
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.9.0-rc2
+      image.tag: 1.9.0-rc3
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -58,7 +58,7 @@ apps:
     priority: -5
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.9.0-rc2
+      image.tag: 1.9.0-rc3
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -74,7 +74,7 @@ apps:
     priority: -5
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.9.0-rc2
+      image.tag: 1.9.0-rc3
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -89,7 +89,7 @@ apps:
     priority: -5
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.9.0-rc2
+      image.tag: 1.9.0-rc3
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"

@@ -65,8 +65,8 @@ beeConfig:
   swap-endpoint: http://geth-geth-swap:8545
   swap-factory-address: 0x3f9680be9cba9a5523a9e2696e8a97d64acf1b29
   swap-legacy-factory-addresses: 0xbd36b32fa01e393bd52e7c368110447a82a78af6
-  staking-address: 0x430174cf173cf3e81e98c5a4b2dcb8348a094866
-  redistribution-address: 0xdf1b37cc4549db404131fe4a5538f478bc6032c1
+  staking-address: 0xd8b8dadfd643dccb72e8b2bcefc4027f19ff0a12
+  redistribution-address: 0x9353ab59be59f0980da14364cba16e69e8b7b049
   swap-initial-deposit: 500000000000000000
   verbosity: 5
 
