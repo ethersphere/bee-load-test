@@ -1,5 +1,7 @@
 image:
   pullPolicy: Always
+  repository: ethersphere/bee
+  tag: 1.9.0-rc
 
 podManagementPolicy: Parallel
 
