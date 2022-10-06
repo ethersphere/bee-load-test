@@ -1,7 +1,7 @@
 image:
   pullPolicy: Always
   repository: ethersphere/bee
-  tag: 1.9.0-rc
+  tag: 1.9.0-rc3
 
 podManagementPolicy: Parallel
 
@@ -35,11 +35,11 @@ ingressDebug:
 
 resources:
   limits:
-    memory: 1Gi
-    cpu: 0.5
+    memory: 1100Mi
+    cpu: 1
   requests:
     memory: 1Gi
-    cpu: 0.25
+    cpu: 0.4
 
 imagePullSecrets:
   - name: regcred
@@ -54,7 +54,7 @@ persistence:
 
 beeConfig:
   allow-private-cidrs: true
-  block-time: 2
+  block-time: 15
   debug-api-enable: true
   mainnet: false
   network-id: 12345

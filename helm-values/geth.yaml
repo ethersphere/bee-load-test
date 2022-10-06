@@ -141,7 +141,7 @@ serviceAccount:
 geth:
   genesis:
     clique:
-      period: 2
+      period: 15
 
 ingress:
   enabled: true
