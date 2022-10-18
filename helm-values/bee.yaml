@@ -1,7 +1,7 @@
 image:
   pullPolicy: Always
-  repository: ethersphere/bee
-  tag: 1.9.0-rc3
+  repository: gcr.io/esad-bee/esadakar/bee
+  tag: puller-v1
 
 podManagementPolicy: Parallel
 
@@ -70,6 +70,7 @@ beeConfig:
   staking-address: 0xd8b8dadfd643dccb72e8b2bcefc4027f19ff0a12
   redistribution-address: 0x9353ab59be59f0980da14364cba16e69e8b7b049
   swap-initial-deposit: 500000000000000000
+  storage-incentives-enable: true
   verbosity: 5
 
 password: beekeeper
