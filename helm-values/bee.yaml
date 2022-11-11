@@ -57,9 +57,9 @@ beeConfig:
   debug-api-enable: true
   mainnet: false
   network-id: 10000
-  postage-stamp-address: 0x00F19eB1320AD0346dD45DE3e38a899498cDc960
-  redistribution-address: 0xedf2801e373f7D14c16eFCe51375718072EC2810
-  staking-address: 0x1D8385fB8A1f2871797Ef9800D7D72028A135327
+  postage-stamp-address: 0x4b8e0a87fbf94119ed0299bc22c44a78b83cf675
+  staking-address: 0x906875b3a14c2a054dff970f87f44b82492c9037
+  redistribution-address: 0x942129af4a0b153a7a4229d8f84f66d3194aaaef
   storage-incentives-enable: true
   tracing-enable: true
   tracing-service-name: private-testnet
