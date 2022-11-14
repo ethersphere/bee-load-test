@@ -65,7 +65,7 @@ beeConfig:
   tracing-service-name: private-testnet
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
   swap-endpoint: ws://goerli-geth-2.goerli-geth-2:8546
-  swap-initial-deposit: 10000000000000000
+  swap-initial-deposit: 0
   verbosity: 5
   welcome-message: Welcome to the Private Testnet!
 
