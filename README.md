@@ -27,7 +27,7 @@ Helmsman DSF files use official [Bee Helm Chart](https://github.com/ethersphere/
 
 **Note:** Everyone should update name of the namespace to avoid overlapping with others if working on the same Kubernetes cluster. 
 
-:red_circle: Specify your AWS account ID inside `.env` file using `export AWS_ACCOUNT_ID=`
+:red_circle: Use `.env.example` to create `.env` and specify your AWS account ID inside `.env` file using `export AWS_ACCOUNT_ID=`
 
 ### Export
 For exporting all cluster data Bee and Geth nodes:
