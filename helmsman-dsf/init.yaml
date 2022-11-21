@@ -41,8 +41,8 @@ apps:
     priority: -10
     enabled: true
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc8
+      image.repository: gcr.io/esad-bee/esadakar/bee
+      image.tag: rc8-sample-8
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -56,8 +56,8 @@ apps:
     priority: -5
     enabled: true
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc8
+      image.repository: gcr.io/esad-bee/esadakar/bee
+      image.tag: rc8-sample-8
       gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
@@ -74,8 +74,8 @@ apps:
     priority: -5
     enabled: true
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc8
+      image.repository: gcr.io/esad-bee/esadakar/bee
+      image.tag: rc8-sample-8
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       beeConfig.tracing-service-name: bee-anatol
@@ -91,8 +91,8 @@ apps:
     priority: -5
     enabled: false
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc8
+      image.repository: gcr.io/esad-bee/esadakar/bee
+      image.tag: rc8-sample-8
       replicaCount: $LIGHT_REPLICA
       beeConfig.full-node: false
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
