@@ -42,7 +42,7 @@ apps:
     enabled: true
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc9
+      image.tag: 1.10.0-rc10
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -59,7 +59,7 @@ apps:
       # image.repository: perun84/bee
       # image.tag: nuke-fix-2
       image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc9
+      image.tag: 1.10.0-rc10
       gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
@@ -77,7 +77,7 @@ apps:
     enabled: true
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc9
+      image.tag: 1.10.0-rc10
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       beeConfig.tracing-service-name: bee-anatol
@@ -94,7 +94,7 @@ apps:
     enabled: false
     set:
       image.repository: ethersphere/bee
-      image.tag: 1.10.0-rc9
+      image.tag: 1.10.0-rc10
       replicaCount: $LIGHT_REPLICA
       beeConfig.full-node: false
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
