@@ -6,12 +6,13 @@ serviceAccount:
   createRole: true
 
 config:
-  command: ['beekeeper', 'check', '--cluster-name=anatol', '--checks=load', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
+  command: ['beekeeper', 'check', '--cluster-name=testnet', '--checks=load', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
   dirPath: 'files'
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
-  CONFIG_GIT_BRANCH: load-test
-  schedule: '30 */1 * * *'
-  parallelism: 5
+  # CONFIG_GIT_BRANCH: anatol-testnet-gateway
+  CONFIG_GIT_BRANCH: umer_private_testnet
+  schedule: '02 */1 * * *'
+  parallelism: 1
 
 nodeSelector:
   node-group: private
