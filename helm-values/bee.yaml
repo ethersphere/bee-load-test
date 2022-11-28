@@ -36,19 +36,19 @@ ingressDebug:
     - paths:
         - /
 
-resources:
-  limits:
-    memory: 1Gi
-    cpu: 0.5
-  requests:
-    memory: 1Gi
-    cpu: 0.25
-
 imagePullSecrets:
   - name: regcred
 
 nodeSelector:
   node-group: load-test
+
+resources:
+  limits:
+    memory: 3.0Gi
+    cpu: 1.75
+  requests:
+    memory: 2.0Gi
+    cpu: 1.0
 
 persistence:
   enabled: true
@@ -57,8 +57,8 @@ persistence:
   separateLocalstore:
     enabled: true
     accessMode: ReadWriteOnce
-    size: 34Gi
-    storageClass: local-storage-4hdd
+    size: 69Gi
+    storageClass: local-storage
 
 beeConfig:
   allow-private-cidrs: true
