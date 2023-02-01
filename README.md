@@ -59,3 +59,12 @@ To destroy everything run:
 ```bash
 $ NAMESPACE=storage-snapshot ./uninstall.sh
 ```
+
+### Load test deployment
+
+To deploy/undeploy load test alone use these commands
+
+```bash
+NAMESPACE=testnet-gateway helmsman -apply -subst-env-values -f ./helmsman-dsf/init.yaml -target=beekeeper-load-test
+NAMESPACE=testnet-gateway helmsman -destroy -subst-env-values -f ./helmsman-dsf/init.yaml -target=beekeeper-load-test
+```
