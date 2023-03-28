@@ -42,8 +42,17 @@ $ NAMESPACE=storage-snapshot ./install.sh export latest
 For importing all cluster data Bee and Geth nodes:
 
 ```bash
-$ NAMESPACE=storage-snapshot ./install.sh export latest
+$ NAMESPACE=storage-snapshot ./install.sh import latest
 ```
+
+### Nuke
+For importing nuking all Beenodes:
+
+```bash
+$ NAMESPACE=storage-snapshot ./install.sh nuke
+```
+
+**Note:** After nuke is done you have to deploy `init` again.
 
 ## Configuration
 
