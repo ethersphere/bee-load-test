@@ -12,7 +12,7 @@ appsTemplates:
     name: bee
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
-    version: "0.12.2"
+    version: "0.13.0"
     enabled: true
     valuesFiles:
       - "../helm-values/bee.yaml"
@@ -22,7 +22,7 @@ appsTemplates:
       image.tag: 1.6.3
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmdSd9tTGj9Rctsb5vt9XStHtJvtki2qmX8MXuFQXjxPZw"
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
     wait: true
     timeout: 1800
 
