@@ -18,13 +18,13 @@ appsTemplates:
     valuesFiles:
       - "../helm-values/bee.yaml"
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.11.1
+      image.repository: gcr.io/esad-bee/esadakar/bee
+      image.tag: status-protocol-v2
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmdSd9tTGj9Rctsb5vt9XStHtJvtki2qmX8MXuFQXjxPZw"
     wait: true
     timeout: 1800
 
@@ -83,7 +83,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: true
+    enabled: false
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-load-test.yaml"

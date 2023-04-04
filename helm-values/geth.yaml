@@ -141,7 +141,7 @@ serviceAccount:
 geth:
   genesis:
     clique:
-      period: 1
+      period: 5
 
 image:
   pullPolicy: IfNotPresent
