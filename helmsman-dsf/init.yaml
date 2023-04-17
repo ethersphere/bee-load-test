@@ -13,18 +13,18 @@ appsTemplates:
     namespace: $NAMESPACE
     chart: "ethersphere/bee"
     # chart: "../../helm/charts/bee"
-    version: "0.12.2"
+    version: "0.13.0"
     enabled: true
     valuesFiles:
       - "../helm-values/bee.yaml"
     set:
-      image.repository: ethersphere/bee
-      image.tag: 1.11.1
+      image.repository: vandot/bee
+      image.tag: localstorev2.0
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
     wait: true
     timeout: 1800
 
@@ -56,6 +56,7 @@ apps:
     <<: *beeTemplate
     name: gateway
     description: "Gateway Nodes"
+    enabled: false
     priority: -5
     set:
       gatewayProxy.enabled: true
@@ -73,6 +74,7 @@ apps:
     <<: *beeTemplate
     name: light
     description: "Light Nodes"
+    enabled: false
     priority: -5
     set:
       replicaCount: $LIGHT_REPLICA
@@ -83,12 +85,12 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: true
+    enabled: false
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-load-test.yaml"
     set:
       image.repository: ethersphere/beekeeper
-      image.tag: 0.11.15
+      image.tag: 0.12.1
     wait: false
     timeout: 900
