@@ -58,6 +58,8 @@ beeConfig:
   network-id: 12345
   payment-threshold: 108000000
   postage-stamp-start-block: 1
+  staking-address: 0xc0332d319b73cfeed89511fe1a83add141bd6f12
+  redistribution-address: 0x56e442f99cafd7c890c404c1f8c16d38a569e41a
   postage-stamp-address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
   price-oracle-address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
   swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
