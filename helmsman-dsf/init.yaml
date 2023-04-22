@@ -89,6 +89,6 @@ apps:
       - "../helm-values/beekeeper-load-test.yaml"
     set:
       image.repository: ethersphere/beekeeper
-      image.tag: 0.11.15
+      image.tag: 0.12.1
     wait: false
     timeout: 900

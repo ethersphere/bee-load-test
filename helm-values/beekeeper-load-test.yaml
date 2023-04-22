@@ -10,7 +10,7 @@ config:
   dirPath: 'files'
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
   CONFIG_GIT_BRANCH: main
-  schedule: '*/46 * * * *'
+  schedule: '*/15 * * * *'
   parallelism: 1
 
 nodeSelector:
