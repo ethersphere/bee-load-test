@@ -17,7 +17,7 @@ appsTemplates:
     enabled: true
     valuesFiles:
       - "../helm-values/bee.yaml"
-    wait: true
+    wait: false
     timeout: 1800
 
 apps:
@@ -44,54 +44,148 @@ apps:
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
       beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
-  gateway:
+  full-0:
     <<: *beeTemplate
-    name: gateway
-    description: "Gateway Nodes"
-    enabled: false
-    priority: -5
-    set:
-      gatewayProxy.enabled: true
-      replicaCount: $GATEWAY_REPLICA
-      beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
-      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
-      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
-  full:
-    <<: *beeTemplate
-    name: full
+    name: full-0
     description: "Full Nodes"
     priority: -5
     set:
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
       beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
-  light:
+  full-1:
     <<: *beeTemplate
-    name: light
-    description: "Light Nodes"
-    enabled: false
+    name: full-1
+    description: "Full Nodes"
     priority: -5
     set:
-      replicaCount: $LIGHT_REPLICA
-      beeConfig.full-node: false
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-2:
+    <<: *beeTemplate
+    name: full-2
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-3:
+    <<: *beeTemplate
+    name: full-3
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-4:
+    <<: *beeTemplate
+    name: full-4
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-5:
+    <<: *beeTemplate
+    name: full-5
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-6:
+    <<: *beeTemplate
+    name: full-6
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-7:
+    <<: *beeTemplate
+    name: full-7
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-8:
+    <<: *beeTemplate
+    name: full-8
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
+      ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      serviceAccount.create: true
+      beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/QmaHzvd3iZduu275CMkMVZKwbsjXSyH3GJRj4UvFJApKcb"
+  full-9:
+    <<: *beeTemplate
+    name: full-9
+    description: "Full Nodes"
+    priority: -5
+    set:
+      replicaCount: $FULL_REPLICA
+      beeConfig.full-node: true
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true

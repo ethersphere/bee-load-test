@@ -25,4 +25,4 @@ if [[ -z ${1} ]]; then
 fi
 
 echo "INSTALLING"
-helmsman -apply -subst-env-values -f ./helmsman-dsf/"${1}".yaml -p 5
+helmsman -apply -subst-env-values -f ./helmsman-dsf/"${1}".yaml -p 10
