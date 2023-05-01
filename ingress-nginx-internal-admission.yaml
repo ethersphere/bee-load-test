@@ -1,0 +1,47 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    meta.helm.sh/release-name: ingress-nginx-internal
+    meta.helm.sh/release-namespace: ingress-nginx-internal
+  creationTimestamp: "2023-01-17T17:38:07Z"
+  generation: 2
+  labels:
+    app.kubernetes.io/component: admission-webhook
+    app.kubernetes.io/instance: ingress-nginx-internal
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.5.1
+    helm.sh/chart: ingress-nginx-4.4.0
+  name: ingress-nginx-internal-admission
+  resourceVersion: "915952331"
+  uid: b9777643-5ece-4720-82ff-be86a4d9db20
+webhooks:
+- admissionReviewVersions:
+  - v1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJkakNDQVJ5Z0F3SUJBZ0lSQUxuL1ZBVXpOb1o0UStIVlpDaGl4YWt3Q2dZSUtvWkl6ajBFQXdJd0R6RU4KTUFzR0ExVUVDaE1FYm1sc01UQWdGdzB5TVRBMk1EZ3lNVFUxTXpGYUdBOHlNVEl4TURVeE5USXhOVFV6TVZvdwpEekVOTUFzR0ExVUVDaE1FYm1sc01UQlpNQk1HQnlxR1NNNDlBZ0VHQ0NxR1NNNDlBd0VIQTBJQUJDRnhiNE9SCm5hSWZGS0tLWWQvdzVGV1Z0QUFYSTkzWnV2Nk1IeFFMM3Vwb3ZxZjNTa1NVbTNoWWYxUDVyMUxING5xRVFqemQKbG9iZVV2aVkyTjMrUk9HalZ6QlZNQTRHQTFVZER3RUIvd1FFQXdJQ0JEQVRCZ05WSFNVRUREQUtCZ2dyQmdFRgpCUWNEQVRBUEJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJTamNlZ0pwRVNMVThDNW9KOGo2M21MCi94WW5aakFLQmdncWhrak9QUVFEQWdOSUFEQkZBaUVBdDNEc0JBMVJ6cEppb2NVcVVWaDJvRjc0MnBGWjVmQTEKRVVTbjExaDAzMGtDSUV4UlBKUjNEZG45bWRkVXNvd3BHdXUzR3J2SnAyMXBaektBKzJrY3lLbm8KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    service:
+      name: ingress-nginx-internal-controller-admission
+      namespace: ingress-nginx-internal
+      path: /networking/v1/ingresses
+      port: 443
+  failurePolicy: Fail
+  matchPolicy: Equivalent
+  name: validate.nginx.ingress.kubernetes.io
+  namespaceSelector: {}
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - networking.k8s.io
+    apiVersions:
+    - v1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - ingresses
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 30
