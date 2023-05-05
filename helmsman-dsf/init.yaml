@@ -44,8 +44,8 @@ apps:
       replicaCount: $BOOTNODE_REPLICA
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
@@ -60,8 +60,8 @@ apps:
       gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       gatewayProxy.ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
@@ -75,8 +75,8 @@ apps:
     set:
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
@@ -90,8 +90,8 @@ apps:
     set:
       replicaCount: $LIGHT_REPLICA
       beeConfig.full-node: false
-      image.repository: aloknerurkar/bee-localstore
-      image.tag: v2
+      image.repository: $REPOSITORY
+      image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
