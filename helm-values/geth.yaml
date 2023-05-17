@@ -150,6 +150,7 @@ nodeSelector:
   node-group: private
 
 imageSetupContract:
+  repository: ethersphere/setup-contracts
   tag: 0.9.9
 
 persistence:
