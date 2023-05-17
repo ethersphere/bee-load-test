@@ -164,3 +164,12 @@ resources:
   requests:
     cpu: 500m
     memory: 1024Mi
+
+ingress:
+  enabled: true
+  className: nginx-internal
+  hosts:
+    - host: geth-swap.private-localstorev2.testnet.internal
+      paths:
+        - /
+          # pathType: Prefix
