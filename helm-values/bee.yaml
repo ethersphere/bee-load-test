@@ -36,11 +36,11 @@ ingressDebug:
 
 resources:
   limits:
-    memory: 1Gi
-    cpu: 0.5
+    memory: 3Gi
+    cpu: 1.75
   requests:
-    memory: 1Gi
-    cpu: 0.25
+    memory: 2Gi
+    cpu: 1.0
 
 imagePullSecrets:
   - name: regcred

@@ -168,7 +168,7 @@ resources:
 
 ingress:
   enabled: true
-  className: nginx-internal
+  class: nginx-internal
   hosts:
     - host: geth-swap.private-localstorev2.testnet.internal
       paths:
