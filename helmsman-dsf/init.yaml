@@ -85,7 +85,7 @@ apps:
     <<: *beeTemplate
     name: light
     description: "Light Nodes"
-    enabled: false
+    enabled: true
     priority: -5
     set:
       replicaCount: $LIGHT_REPLICA
