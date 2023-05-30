@@ -6,6 +6,9 @@ podManagementPolicy: Parallel
 serviceAccount:
   create: true
 
+# probesEnable: false
+# beeCommand: ["bee", "db", "nuke", "--data-dir=/home/bee/.bee", "--sleep-after=10m"]
+
 ingress:
   enabled: true
   annotations:
@@ -33,7 +36,7 @@ ingressDebug:
 
 resources:
   limits:
-    memory: 1Gi
+    memory: 2Gi
     cpu: 0.5
   requests:
     memory: 1Gi
@@ -58,10 +61,12 @@ beeConfig:
   network-id: 12345
   payment-threshold: 108000000
   postage-stamp-start-block: 1
-  postage-stamp-address: 0x538e6de1d876bbcd5667085257bc92f7c808a0f3
-  price-oracle-address: 0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2
-  swap-factory-address: 0x09ad42a7d020244920309ffa14ea376dd2d3b7d5
-  swap-legacy-factory-addresses: 0x657241f4494a2f15ba75346e691d753a978c72df
+  postage-stamp-address: "0x538e6de1d876bbcd5667085257bc92f7c808a0f3"
+  price-oracle-address: "0xfc28330f1ece0ef2371b724e0d19c1ee60b728b2"
+  staking-address: "0xc0332d319b73cfeed89511fe1a83add141bd6f12"
+  redistribution-address: "0x56e442f99cafd7c890c404c1f8c16d38a569e41a"
+  swap-factory-address: "0x09ad42a7d020244920309ffa14ea376dd2d3b7d5"
+  swap-legacy-factory-addresses: "0x657241f4494a2f15ba75346e691d753a978c72df"
   tracing-enable: true
   tracing-service-name: bee-load-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831

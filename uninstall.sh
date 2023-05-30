@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+. .env
+
 export RELEASE="${1:-import}"
 
 if [[ -z $NAMESPACE ]]; then 
