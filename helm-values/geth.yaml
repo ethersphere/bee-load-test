@@ -1024,7 +1024,7 @@ imageSetupContract:
 
 persistence:
   enabled: true
-  size: 1Gi
+  size: 20Gi
   storageClass: gp2
 
 resources:
