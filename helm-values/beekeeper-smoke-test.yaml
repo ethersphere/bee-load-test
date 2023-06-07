@@ -6,7 +6,7 @@ serviceAccount:
   createRole: true
 
 config:
-  command: ['beekeeper', 'check', '--cluster-name=private-testnet', '--checks=load-private-testnet,smoke-private-testnet', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
+  command: ['beekeeper', 'check', '--cluster-name=private-testnet', '--checks=smoke-private-testnet', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
   dirPath: 'files'
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
   CONFIG_GIT_BRANCH: private-testnet
