@@ -1034,3 +1034,12 @@ resources:
   requests:
     cpu: 500m
     memory: 1024Mi
+
+ingress:
+  enabled: true
+  class: nginx-internal
+  hosts:
+    - host: geth-swap.private-testnet.testnet.internal
+      paths:
+        - /
+          # pathType: Prefix
