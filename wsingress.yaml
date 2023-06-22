@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    app.kubernetes.io/instance: geth
+    app.kubernetes.io/name: geth-swap-ws
+  name: geth-geth-swap-ws
+  namespace: private-testnet
+spec:
+  ingressClassName: nginx-internal
+  rules:
+  - host: geth-swap-ws.private-testnet.testnet.internal
+    http:
+      paths:
+      - backend:
+          service:
+            name: geth-geth-swap
+            port:
+              number: 8546
+        path: /
+        pathType: ImplementationSpecific
