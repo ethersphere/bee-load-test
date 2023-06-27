@@ -15,7 +15,7 @@ ingress:
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/affinity-mode: "persistent"
     nginx.ingress.kubernetes.io/session-cookie-name: "SWARMGATEWAY"
-    nginx.ingress.kubernetes.io/session-cookie-max-age: "86400" # 30 minutes
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "86400"
     nginx.ingress.kubernetes.io/session-cookie-path: "default"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
@@ -45,7 +45,7 @@ resources:
     cpu: 1.75
   requests:
     memory: 2.0Gi
-    cpu: 1.0
+    cpu: 1.1
 
 imagePullSecrets:
   - name: regcred
