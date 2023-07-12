@@ -1024,16 +1024,16 @@ imageSetupContract:
 
 persistence:
   enabled: true
-  size: 20Gi
+  size: 80Gi
   storageClass: gp2
 
 resources:
   limits:
-    cpu: 500m
-    memory: 2048Mi
+    cpu: 1000m
+    memory: 4096Mi
   requests:
-    cpu: 500m
-    memory: 1024Mi
+    cpu: 750m
+    memory: 3092Mi
 
 ingress:
   enabled: true
