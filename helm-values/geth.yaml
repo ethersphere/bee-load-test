@@ -1008,6 +1008,8 @@ serviceAccount:
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::${AWS_ACCOUNT_ID}:role/storage-syncer-role-${NAMESPACE}
 
+gethCommand: ["geth", "--http", "--http.addr", "'0.0.0.0'", "--allow-insecure-unlock", "--http.api", "'eth,net,personal,web3'", "--http.vhosts", "'*'", "--ws", "--ws.addr", "'0.0.0.0'", "--ws.api", "'eth,net,personal,web3'", "--unlock=62cab2b3b55f341f10348720ca18063cdb779ad5", "--password=/dev/null", "--mine", "--lightkdf", "--syncmode=full", "--cache=512", "--rpc.txfeecap=0"]
+
 geth:
   genesis:
     clique:
