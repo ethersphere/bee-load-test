@@ -162,7 +162,7 @@ apps:
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY
-      image.tag: $TAG
+      image.tag: "nevictb1m"
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
@@ -177,7 +177,7 @@ apps:
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY
-      image.tag: $TAG
+      image.tag: "nevictb1k"
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
@@ -192,7 +192,7 @@ apps:
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY
-      image.tag: $TAG
+      image.tag: "nevictbf128"
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
