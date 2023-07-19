@@ -203,7 +203,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: false
+    enabled: true
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-load-test.yaml"
@@ -218,7 +218,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: false
+    enabled: true
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-smoke-test.yaml"
