@@ -92,7 +92,7 @@ apps:
       replicaCount: 6
       beeConfig.full-node: true
       image.repository: aloknerurkar/bee
-      image.tag: 2rc12
+      image.tag: 1.17
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
