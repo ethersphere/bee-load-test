@@ -42,6 +42,8 @@ apps:
     set:
       image.repository: ethereum/client-go
       image.tag: v1.10.18
+      ingress.hosts[0].host: "geth-swap.$NAMESPACE.testnet.internal"
+      ingress.hosts[0].paths[0]: "/"
     wait: true
   bootnode:
     <<: *beeTemplate
