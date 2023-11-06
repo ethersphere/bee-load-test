@@ -6,12 +6,13 @@ serviceAccount:
   createRole: true
 
 config:
-  command: ['beekeeper', 'check', '--cluster-name=testnet', '--checks=load', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
+  command: ['beekeeper', 'check', '--cluster-name=ph4', '--checks=load-ph4', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=12h', '--log-verbosity', '"5"']
   dirPath: 'files'
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
-  CONFIG_GIT_BRANCH: main
+  CONFIG_GIT_BRANCH: ph4
+  GETH_URL: http://goerli-geth.goerli-geth:8545
   schedule: '*/15 * * * *'
   parallelism: 1
 
 nodeSelector:
-  node-group: private
+  node-group: testnet-giant
