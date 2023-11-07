@@ -64,26 +64,26 @@ persistence:
     storageClass: local-storage-4hdd
 
 beeConfig:
-  bootnode: "/ip4/3.127.217.158/tcp/31000/p2p/QmbVLSLaaCNL5ERAMhbZv4uhWF1jZs6YP9t8LpmnFnMc7C"
+  bootnode: "/ip4/3.127.217.158/tcp/31050/p2p/QmRMX1jPh5nY3HpYyU13hM1zxqZqGx4vZXhd3kQTkhd7PM"
+  full-node: true
   full-node: true
   swap-enable: true
   debug-api-enable: true
   mainnet: false
-  network-id: 333
-  cache-capacity: 5000000
+  network-id: 666
   tracing-enable: true
-  tracing-service-name: ph4-test
+  tracing-service-name: sepolia-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
-  swap-endpoint: http://goerli-geth.goerli-geth:8545
+  swap-endpoint: http://sepolia-nethermind.sepolia-nethermind:8545
   swap-initial-deposit: 0
   verbosity: 5
   resolver-options: https://cloudflare-eth.com
-  welcome-message: "Welcome to the PH4 Testnet!"
+  welcome-message: "Welcome to the Sepolia Testnet!"
 
 p2pFixedPort:
   enabled: true
 
-password: ph4-testing
+password: sepolia-testing
 
 libp2pSettings:
   enabled: false

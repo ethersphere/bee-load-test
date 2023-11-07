@@ -43,6 +43,7 @@ apps:
     priority: -10
     set:
       replicaCount: $BOOTNODE_REPLICA
+      p2pFixedPort.nodePortStart: 31050
       beeConfig.bootnode-mode: true
       beeConfig.full-node: true
       image.repository: $REPOSITORY
@@ -50,6 +51,7 @@ apps:
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
       serviceAccount.create: true
+    wait: false
   gateway:
     <<: *beeTemplate
     name: gateway
@@ -72,7 +74,7 @@ apps:
     description: "Full Nodes"
     priority: -5
     set:
-      p2pFixedPort.nodePortStart: 31003
+      p2pFixedPort.nodePortStart: 31051
       replicaCount: $FULL_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY
@@ -100,7 +102,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: false
+    enabled: true
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-load-test.yaml"
