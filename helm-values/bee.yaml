@@ -3,6 +3,10 @@ image:
 
 podManagementPolicy: Parallel
 
+# Nuke
+# probesEnable: false
+# beeCommand: ["bee", "db", "nuke", "--data-dir=/home/bee/.bee", "--sleep-after=10m"]
+
 serviceAccount:
   create: true
 
@@ -27,6 +31,8 @@ ingressDebug:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx-internal
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
     - paths:
         - /
@@ -63,11 +69,16 @@ persistence:
     size: 34Gi
     storageClass: local-storage-4hdd
 
-beeConfig:
-  bootnode: "/ip4/3.127.217.158/tcp/31000/p2p/QmbVLSLaaCNL5ERAMhbZv4uhWF1jZs6YP9t8LpmnFnMc7C"
+extraEnvs:
+  - name: GOLOG_LOG_LEVEL
+    value: error,swarm2=debug
+
+beeConfig:                                                                               
+  bootnode: "[/ip4/3.123.254.34/tcp/31000/p2p/QmR3CHjkin2Xs7uXsSsxaHNNfVrAg6k5rpNHv6sXCcKaT1, /ip4/3.123.254.34/udp/31000/quic-v1/p2p/QmR3CHjkin2Xs7uXsSsxaHNNfVrAg6k5rpNHv6sXCcKaT1]"
   full-node: true
   swap-enable: true
   debug-api-enable: true
+  # p2p-quic-enable: true
   mainnet: false
   network-id: 333
   cache-capacity: 5000000
