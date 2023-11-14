@@ -102,10 +102,25 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: true
+    enabled: false
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-load-test.yaml"
+    set:
+      image.repository: ethersphere/beekeeper
+      image.tag: 0.13.9
+    wait: false
+    timeout: 900
+  beekeeper-smoke-test:
+    name: beekeeper-smoke-test
+    namespace: $NAMESPACE
+    chart: "ethersphere/beekeeper"
+    version: "0.4.3"
+    description: "A Helm chart for beekeeper"
+    enabled: true
+    priority: -2
+    valuesFiles:
+      - "../helm-values/beekeeper-smoke-test.yaml"
     set:
       image.repository: ethersphere/beekeeper
       image.tag: 0.13.9
