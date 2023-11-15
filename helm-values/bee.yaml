@@ -78,7 +78,6 @@ beeConfig:
   full-node: true
   swap-enable: true
   debug-api-enable: true
-  # p2p-quic-enable: true
   mainnet: false
   network-id: 333
   cache-capacity: 5000000

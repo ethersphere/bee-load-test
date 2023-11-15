@@ -49,24 +49,24 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
     wait: false
-  gateway:
+  no-quic:
     <<: *beeTemplate
-    name: gateway
-    description: "Gateway Nodes"
+    name: no-quic
+    description: "QUIC disabled Nodes"
     priority: -5
-    enabled: false
+    enabled: true
     set:
-      p2pFixedPort.nodePortStart: 31001
+      p2pFixedPort.nodePortStart: 31040
       gatewayProxy.enabled: false
-      replicaCount: $GATEWAY_REPLICA
+      replicaCount: $NO_QUIC_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
+      beeConfig.p2p-quic-enable: false
+    wait: false
   full:
     <<: *beeTemplate
     name: full
@@ -80,7 +80,6 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
     wait: false
   light:
     <<: *beeTemplate
@@ -95,7 +94,6 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      serviceAccount.create: true
   beekeeper-load-test:
     name: beekeeper-load-test
     namespace: $NAMESPACE
