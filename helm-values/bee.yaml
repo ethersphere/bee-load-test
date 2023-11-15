@@ -69,12 +69,8 @@ persistence:
     size: 34Gi
     storageClass: local-storage-4hdd
 
-extraEnvs:
-  - name: GOLOG_LOG_LEVEL
-    value: error,swarm2=debug
-
 beeConfig:                                                                               
-  bootnode: "[/ip4/3.123.254.34/tcp/31000/p2p/QmR3CHjkin2Xs7uXsSsxaHNNfVrAg6k5rpNHv6sXCcKaT1, /ip4/3.123.254.34/udp/31000/quic-v1/p2p/QmR3CHjkin2Xs7uXsSsxaHNNfVrAg6k5rpNHv6sXCcKaT1]"
+  bootnode: "[/ip4/3.122.234.225/tcp/31000/p2p/QmSRFnvooV4Sjaf5y1Dg35zr3UuGnSTsYfkthAibHUixJe, /ip4/3.122.234.225/udp/31000/quic-v1/p2p/QmSRFnvooV4Sjaf5y1Dg35zr3UuGnSTsYfkthAibHUixJe]"
   full-node: true
   swap-enable: true
   debug-api-enable: true
