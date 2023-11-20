@@ -1,0 +1,17 @@
+image:
+  pullPolicy: Always
+
+serviceAccount:
+  ## Specifies whether a service account should be created
+  create: true
+  ## create role or/and cluster role for the service account
+  createRole: true
+
+config:
+  command: ['beekeeper', 'check', '--cluster-name=sepolia-testnet', '--checks=smoke-sepolia-testnet', '--create-cluster=false', '--metrics-pusher-address=pushgateway.staging.internal', '--timeout=13h']
+  dirPath: 'files'
+  # environment variables
+  CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
+  CONFIG_GIT_BRANCH: sepolia-testnet
+  # cron job
+  schedule: '10 */2 * * *'
