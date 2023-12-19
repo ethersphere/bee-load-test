@@ -117,7 +117,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: true
+    enabled: false
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-smoke-test.yaml"

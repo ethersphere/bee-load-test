@@ -64,7 +64,7 @@ persistence:
     storageClass: local-storage-4hdd
 
 beeConfig:
-  bootnode: "/ip4/3.127.217.158/tcp/31050/p2p/QmRMX1jPh5nY3HpYyU13hM1zxqZqGx4vZXhd3kQTkhd7PM"
+  bootnode: "/ip4/35.158.214.147/tcp/31050/p2p/QmVbZeibr8dQgAo4tzQyMy5wbq2F7e9RuJADqV1JByobs1"
   full-node: true
   full-node: true
   swap-enable: true
@@ -74,11 +74,11 @@ beeConfig:
   tracing-enable: true
   tracing-service-name: sepolia-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
-  swap-endpoint: http://sepolia-nethermind.sepolia-nethermind:8545
+  swap-endpoint: http://goerli-geth.goerli-geth:8545
   swap-initial-deposit: 0
   verbosity: 5
   resolver-options: https://cloudflare-eth.com
-  welcome-message: "Welcome to the Sepolia Testnet!"
+  welcome-message: "Welcome to the Pre Sepolia Testnet!"
 
 p2pFixedPort:
   enabled: true

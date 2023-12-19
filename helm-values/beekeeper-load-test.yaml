@@ -10,7 +10,7 @@ config:
   dirPath: 'files'
   CONFIG_GIT_REPO: 'https://github.com/ethersphere/beekeeper-config.git'
   CONFIG_GIT_BRANCH: sepolia-testnet
-  GETH_URL: http://sepolia-nethermind.sepolia-nethermind:8545
+  GETH_URL: http://goerli-geth.goerli-geth:8545
   schedule: '*/15 * * * *'
   parallelism: 1
 
