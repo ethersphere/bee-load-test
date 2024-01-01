@@ -22,20 +22,20 @@ appsTemplates:
 # beeConfig.bootnode: "/dns4/bootnode-bee-0-headless.$NAMESPACE.svc.cluster.local/tcp/1634/p2p/16Uiu2HAm6i4dFaJt584m2jubyvnieEECgqM2YMpQ9nusXfy8XFzL"
 
 apps:
-  # geth:
-  #   name: geth
-  #   namespace: $NAMESPACE
-  #   chart: "ethersphere/geth-swap"
-  #   version: "0.3.5"
-  #   description: "Geth"
-  #   priority: -15
-  #   enabled: true
-  #   valuesFiles:
-  #     - "../helm-values/geth.yaml"
-  #   set:
-  #     image.repository: ethereum/client-go
-  #     image.tag: v1.10.18
-  #   wait: true
+  geth:
+    name: geth
+    namespace: $NAMESPACE
+    chart: "ethersphere/geth-swap"
+    version: "0.3.9"
+    description: "Geth"
+    priority: -15
+    enabled: true
+    valuesFiles:
+      - "../helm-values/geth.yaml"
+    set:
+      image.repository: ethereum/client-go
+      image.tag: v1.10.18
+    wait: true
   bootnode:
     <<: *beeTemplate
     name: bootnode
@@ -49,6 +49,7 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      # beeConfig.p2p-quic-enable: false
     wait: false
   no-quic:
     <<: *beeTemplate
@@ -65,7 +66,7 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
-      beeConfig.p2p-quic-enable: false
+      # beeConfig.p2p-quic-enable: false
     wait: false
   full:
     <<: *beeTemplate
@@ -80,6 +81,7 @@ apps:
       image.tag: $TAG
       ingress.hosts[0].domain: "$NAMESPACE.testnet.internal"
       ingressDebug.hosts[0].domain: "$NAMESPACE.testnet.internal"
+      # beeConfig.p2p-quic-enable: false
     wait: false
   light:
     <<: *beeTemplate
@@ -115,7 +117,7 @@ apps:
     chart: "ethersphere/beekeeper"
     version: "0.4.3"
     description: "A Helm chart for beekeeper"
-    enabled: true
+    enabled: false
     priority: -2
     valuesFiles:
       - "../helm-values/beekeeper-smoke-test.yaml"
