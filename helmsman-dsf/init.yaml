@@ -57,10 +57,10 @@ apps:
     name: gateway
     description: "Gateway Nodes"
     priority: -5
-    enabled: false
+    enabled: true
     set:
-      p2pFixedPort.nodePortStart: 31001
-      gatewayProxy.enabled: false
+      p2pFixedPort.nodePortStart: 31066
+      gatewayProxy.enabled: true
       replicaCount: $GATEWAY_REPLICA
       beeConfig.full-node: true
       image.repository: $REPOSITORY

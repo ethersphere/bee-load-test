@@ -11,12 +11,6 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx-internal
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/affinity: "cookie"
-    nginx.ingress.kubernetes.io/affinity-mode: "persistent"
-    nginx.ingress.kubernetes.io/session-cookie-name: "SWARMGATEWAY"
-    nginx.ingress.kubernetes.io/session-cookie-max-age: "86400" # 30 minutes
-    nginx.ingress.kubernetes.io/session-cookie-path: "default"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
@@ -27,6 +21,9 @@ ingressDebug:
   enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx-internal
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "7200"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "7200"
   hosts:
     - paths:
         - /
@@ -64,21 +61,21 @@ persistence:
     storageClass: local-storage-4hdd
 
 beeConfig:
-  bootnode: "/ip4/35.158.214.147/tcp/31050/p2p/QmVbZeibr8dQgAo4tzQyMy5wbq2F7e9RuJADqV1JByobs1"
+  bootnode: "/ip4/52.29.141.73/tcp/31050/p2p/QmeW2VcP3h7sudxJ9LdoBY5uhYD6fqwW8V2FBnEhUHakXg"
   full-node: true
   full-node: true
   swap-enable: true
   debug-api-enable: true
   mainnet: false
-  network-id: 666
+  network-id: 10
   tracing-enable: true
   tracing-service-name: sepolia-test
   tracing-endpoint: tempo-tempo-distributed-distributor.observability:6831
-  swap-endpoint: http://goerli-geth.goerli-geth:8545
+  swap-endpoint: http://sepolia-nethermind.sepolia-nethermind:8545
   swap-initial-deposit: 0
   verbosity: 5
   resolver-options: https://cloudflare-eth.com
-  welcome-message: "Welcome to the Pre Sepolia Testnet!"
+  welcome-message: "Welcome to the Sepolia Testnet!"
 
 p2pFixedPort:
   enabled: true
@@ -95,7 +92,7 @@ gatewayProxy:
   enabled: false
   image:
     repository: ethersphere/gateway-proxy
-    tag: 0.5.1
+    tag: 0.12.0
   autobuy:
     enabled: true
   ingress:
@@ -127,9 +124,9 @@ gatewayProxy:
     tls: true    
   envs:
     - name: POSTAGE_DEPTH
-      value: "24"
+      value: "22"
     - name: POSTAGE_AMOUNT
-      value: "50000001"
+      value: "500000001"
     - name: POSTAGE_USAGE_THRESHOLD
       value: "0.874"
     - name: POSTAGE_USAGE_MAX
