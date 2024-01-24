@@ -61,7 +61,7 @@ persistence:
     storageClass: local-storage-4hdd
 
 beeConfig:
-  bootnode: "/ip4/52.29.141.73/tcp/31050/p2p/QmeW2VcP3h7sudxJ9LdoBY5uhYD6fqwW8V2FBnEhUHakXg"
+  bootnode: "/ip4/3.122.234.225/tcp/31050/p2p/QmdSgC9yDsK2for1VSBgK4CdP3agt76NPuEBs2KCGAnfSQ"
   full-node: true
   full-node: true
   swap-enable: true
